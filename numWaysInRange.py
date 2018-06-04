@@ -7,6 +7,9 @@ def ncr(n, r):
     return numer//denom
 
 def recurrenceSolver(n):
+    """
+    Inefficient function
+    """
     if n in (1, 2):
         return 0
     elif n == 3:
@@ -18,9 +21,11 @@ def recurrenceSolver(n):
 
 numTestCases = int(input())
 LRlist = []
+# Necessary loop
 for _ in range(numTestCases):
     LRlist.append(input().split())
 
+# Need to check if I can avoid any of the below loops to increase efficiency
 for i in LRlist:
     numWays = 0
     for x in range(int(i[0]), int(i[1])+1):
