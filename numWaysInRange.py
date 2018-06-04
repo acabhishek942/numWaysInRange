@@ -1,2 +1,6 @@
 numTestCases = int(input())
-LRlist = [int(l), int(r) in input().split() for _ in range(numTestCases)]
+LRlist = []
+for _ in range(numTestCases):
+    LRlist.append(input().split())
+
+print (LRlist)
