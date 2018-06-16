@@ -20,6 +20,7 @@ def ncr(n, r):
 def recurrenceSolver(n):
     """
     Inefficient function
+    Also wrong implementation
     """
     if n in (1, 2):
         return 0
@@ -45,5 +46,4 @@ for i in LRlist:
         else:
             # remove number of ways of three consecutive ones or zeroes
             numWays += max(2 * ncr(int(i[1]), x) - recurrenceSolver(x), 1)
-
     print(numWays%(10**9 + 7))
