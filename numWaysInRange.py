@@ -17,19 +17,19 @@ def ncr(n, r):
     denom = reduce(op.mul, range(1, r+1), 1)
     return numer//denom
 
-def recurrenceSolver(n):
-    """
-    Inefficient function
-    Also wrong implementation
-    """
-    if n in (1, 2):
-        return 0
-    elif n == 3:
-        return 1
-    return recurrenceSolver(n-1) + recurrenceSolver(n-2) + recurrenceSolver (n-1) + 2 ** (n-3)
+# def recurrenceSolver(n):
+#     """
+#     Inefficient function
+#     Also wrong implementation
+#     """
+#     if n in (1, 2):
+#         return 0
+#     elif n == 3:
+#         return 1
+#     return recurrenceSolver(n-1) + recurrenceSolver(n-2) + recurrenceSolver (n-1) + 2 ** (n-3)
 
-
-
+def getNoCasesToRemove(n, r):
+    return n - r - 1
 
 numTestCases = int(input())
 LRlist = []
@@ -43,7 +43,9 @@ for i in LRlist:
     for x in range(int(i[0]), int(i[1])+1):
         if x < 3:
             numWays += 2 * ncr(int(i[1]), x)
+            # print (numWays)
         else:
             # remove number of ways of three consecutive ones or zeroes
-            numWays += max(2 * ncr(int(i[1]), x) - recurrenceSolver(x), 1)
+            numWays += max(2 * (ncr(int(i[1]), x) - getNoCasesToRemove(int(i[1]), x)), 1)
+            # print (numWays)
     print(numWays%(10**9 + 7))
