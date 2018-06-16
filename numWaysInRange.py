@@ -1,6 +1,17 @@
 import operator as op
 from functools import reduce
 def ncr(n, r):
+    """
+    function to calculate number of ways to select r values from n numbers
+    param n: total number of objects
+    type n: integer
+
+    param r: no. of objects to be selected
+    type r: integer
+
+    return: number of ways to select r values from n numbers
+    type: integer
+    """
     r = min(r, n-r)
     numer = reduce(op.mul, range(n, n-r, -1), 1)
     denom = reduce(op.mul, range(1, r+1), 1)
